@@ -29,7 +29,7 @@ The model utilizes a **Polynomial + Linear SVM** pipeline with **calibrated prob
 | **Log Loss**                           | **0.231**          |
 | **Cohen’s Kappa Score**                | **95.64%**         |
 | **Matthews Corrcoef (MCC)**            | **95.76%**         |
-| **Top-K Accuracy (k=2)**               | **100%**          |
+| **Top-K Accuracy (k=2)**               | **100%**           |
 
 ---
 
@@ -60,3 +60,12 @@ The model utilizes a **Polynomial + Linear SVM** pipeline with **calibrated prob
 The trained model is serialized using `joblib` for easy deployment:  
 `python
 joblib.dump(poly_lin_svm_pipeline, 'wine_poly_svm.pkl')`
+
+---
+##  Author  
+
+**Lavan Kumar Konda**  
+-  2nd Year Student at NIT Andhra Pradesh  
+-  Passionate about Data Science, Machine Learning, and AI  
+-  [LinkedIn](www.linkedin.com/in/lavan-kumar-konda)
+
