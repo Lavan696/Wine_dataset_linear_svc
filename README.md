@@ -29,7 +29,7 @@ The model utilizes a **Polynomial + Linear SVM** pipeline with **calibrated prob
 | **Log Loss**                           | **0.231**          |
 | **Cohen’s Kappa Score**                | **95.64%**         |
 | **Matthews Corrcoef (MCC)**            | **95.76%**         |
-| **Top-K Accuracy (k=2)**               | **100% **          |
+| **Top-K Accuracy (k=2)**               | **100%**          |
 
 ---
 
