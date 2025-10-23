@@ -1,40 +1,62 @@
-#  Wine Dataset Classification with LinearSVC
+# Wine Data Prediction using Polynomial Linear SVM
 
-This project implements a **LinearSVC classifier** on the **Wine dataset** from scikit-learn.  
-It demonstrates a clean ML workflow using **Pipelines**, preprocessing, and robust evaluation techniques.
-
----
-
-Results:
-
-* Test Accuracy:** 97.2%  
-* Cross-Validation:** Mean = 98.5%, Std = 0.017 (5-fold StratifiedKFold)  
-* Dataset:** Wine (178 samples, 13 features, 3 classes)  
-* Train-Test Split:** 80/20  
-
-
-
-# Key Features
-- ✅ Split the dataset into training (80%) and testing (20%) using train_test_split.  
-- ✅ Used **Polynomial Features** (degree=2) to capture non-linear relationships.  
-- ✅ Standardized features using **StandardScaler**.  
-- ✅ Built a clean **Pipeline** combining preprocessing and LinearSVC training.  
-- ✅ Applied **StratifiedKFold** cross-validation (5 splits) for robust performance evaluation.  
-- ✅ Achieved **mean cross-validation score of 98.5%** with standard deviation 0.017.  
-- ✅ Fitted the model on training data and predicted the test set.  
-- ✅ Computed and displayed the **Confusion Matrix** for test predictions.  
+## Overview  
+This project focuses on classifying different wine cultivars using the **Wine dataset** from `scikit-learn`.  
+The model utilizes a **Polynomial + Linear SVM** pipeline with **calibrated probabilities** for robust multi-class classification.
 
 ---
 
-## ⚙️ Tech Stack
-- Python  
-- scikit-learn  
-- NumPy  
-- Matplotlib  
+## Workflow  
+1. **Data Loading** – Loaded the Wine dataset using `load_wine()` from sklearn.  
+2. **EDA** – Checked correlations, visualized feature relationships, and analyzed target distribution.  
+3. **Preprocessing** – Standardized features and added polynomial terms for non-linear separability.  
+4. **Model Training** – Trained a **Polynomial Linear SVM** wrapped in a **CalibratedClassifierCV** for probability estimates.  
+5. **Evaluation** – Measured multiple metrics to validate model performance on test data.  
+6. **Visualization** – Created correlation heatmaps, ROC & Precision-Recall curves, confusion matrix, and classification heatmaps.  
 
 ---
 
-## 📂 How to Run
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/<your-username>/wine-linearSVC.git
+## Model Evaluation  
+
+| Metric                                 | Score              |
+|:---------------------------------------|:-------------------|
+| **Cross-Val Mean Acc ± Std Deviation** | **99.28% ± 0.021** |
+| **Test Accuracy**                      | **97.22%**         |
+| **Precision (Weighted)**               | **97.40%**         |
+| **Recall (Weighted)**                  | **97.22%**         |
+| **F1-Score (Weighted)**                | **97.22%**         |
+| **ROC-AUC (OVR)**                      | **99.89%**         |
+| **Log Loss**                           | **0.231**          |
+| **Cohen’s Kappa Score**                | **95.64%**         |
+| **Matthews Corrcoef (MCC)**            | **95.76%**         |
+| **Top-K Accuracy (k=2)**               | **100% **          |
+
+---
+
+##  Visual Insights  
+-  **Feature Correlation Heatmap** – Showed which features strongly influence target classes.  
+-  **ROC and Precision-Recall Curves** – Demonstrated near-perfect separability among classes.  
+-  **Confusion Matrix** – Displayed minimal misclassifications.  
+-  **Classification Report Heatmap** – Summarized per-class precision, recall, and F1 visually.  
+
+---
+
+##  Key Insights  
+- Polynomial feature expansion enhanced non-linear decision boundaries significantly.  
+- Calibrating LinearSVC allowed reliable **probability estimates** for metrics like ROC-AUC and Log Loss.  
+- Consistent performance across folds (low std deviation) shows **high model stability**.  
+- Excellent agreement metrics (Cohen’s Kappa & MCC ≈ 95%) confirm **robust multi-class consistency**.
+
+---
+
+## Tech Stack  
+- **Python Libraries:** NumPy, Pandas, Matplotlib, Seaborn  
+- **ML Frameworks:** Scikit-learn  
+- **Model Used:** PolynomialFeatures + StandardScaler + Calibrated LinearSVC
+  
+---
+
+##  Model Saving  
+The trained model is serialized using `joblib` for easy deployment:  
+`python
+joblib.dump(poly_lin_svm_pipeline, 'wine_poly_svm.pkl')`
