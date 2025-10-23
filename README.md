@@ -62,10 +62,11 @@ The trained model is serialized using `joblib` for easy deployment:
 joblib.dump(poly_lin_svm_pipeline, 'wine_poly_svm.pkl')`
 
 ---
+
 ##  Author  
 
 **Lavan Kumar Konda**  
 -  2nd Year Student at NIT Andhra Pradesh  
 -  Passionate about Data Science, Machine Learning, and AI  
--  [LinkedIn](www.linkedin.com/in/lavan-kumar-konda/)
+-  [LinkedIn](www.linkedin.com/in/lavan-kumar-konda)
 
