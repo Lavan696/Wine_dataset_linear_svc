@@ -68,5 +68,5 @@ joblib.dump(poly_lin_svm_pipeline, 'wine_poly_svm.pkl')`
 **Lavan Kumar Konda**  
 -  2nd Year Student at NIT Andhra Pradesh  
 -  Passionate about Data Science, Machine Learning, and AI  
--  [LinkedIn](www.linkedin.com/in/lavan-kumar-konda)
+-  [LinkedIn](https://www.linkedin.com/in/lavan-kumar-konda/)
 
